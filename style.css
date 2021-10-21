@@ -1,0 +1,24 @@
+#grille {
+    display: grid; 
+    justify-content: center;
+    grid-template-columns: repeat(19,40px); 
+    grid-template-rows: repeat(22,40px);
+}
+
+body {background-color: black;}
+
+.mur {
+    background-image: url("./image/mur.gif");
+}
+
+.sol {
+    background-image: url("./image/sol.gif");
+}
+
+.bonbon {
+    background-image: url("./image/bonbon.gif");
+}
+
+.pacman {
+background-image: url("./image/pacman4.gif");
+}
