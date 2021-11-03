@@ -1,20 +1,47 @@
 #grille {
     display: grid; 
     justify-content: center;
+    padding-top: 30px;
     grid-template-columns: repeat(19,40px); 
     grid-template-rows: repeat(22,40px);
+
 }
 
-body {background-color: black;
+body {
+background-color: black;
 background-image: url(./image/imagepacman.png);
 background-repeat: no-repeat;
 background-size: 25%;
-background-position-x: 90%;
+background-position-x: 100%;
 background-position-y: 100%;
+display: flex;
+}
+
+.flex{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    padding-top: 30px;
+    padding-left: 30px;
+    text-align: center;
+    
+}
+
+.score{
+    border: 2px red dotted;
+    border-radius: 30px;
+    color: white;
+    width: 30%;
+    padding: 30px;
+    text-align: center;
+    margin-left: 150px;
 }
 
 .mur {
-    background-image: url("./image/mur.gif");
+    
+    background-color: red;
+    border: 1px white dotted;
+    
 }
 
 .sol {
@@ -28,3 +55,8 @@ background-position-y: 100%;
 .pacman {
 background-image: url("./image/pacman4.gif");
 }
+
+.fantome {
+    background-image: url(./image/fantome0.gif);
+}
+
