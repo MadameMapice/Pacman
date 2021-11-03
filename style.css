@@ -5,7 +5,13 @@
     grid-template-rows: repeat(22,40px);
 }
 
-body {background-color: black;}
+body {background-color: black;
+background-image: url(./image/imagepacman.png);
+background-repeat: no-repeat;
+background-size: 25%;
+background-position-x: 90%;
+background-position-y: 100%;
+}
 
 .mur {
     background-image: url("./image/mur.gif");

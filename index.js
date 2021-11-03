@@ -28,11 +28,15 @@ let grille =[
 ]
 
 
+document.body.addEventListener("keypress",changeDirection)
+
+
+
 let pacman={
 
     x:5,
     y:2,
-    direction:0
+    direction:2
 } 
 
 function affichegrille()
@@ -45,7 +49,6 @@ for (let i=0; i<22;i++) {
 
     for (let j=0; j<19;j++) {
 
-        console.log (grille[i][j]);
 
         let elem=document.createElement("div")
 
@@ -78,8 +81,10 @@ function tourdejeu ()
 {
     affichegrille();
 
-
     affichePacman();
+
+    deplacePacman();
+
 }
 
 function affichePacman()
@@ -94,3 +99,29 @@ function affichePacman()
     elem.style.gridColumnStart = pacman.x;
 }
 
+
+function deplacePacman()
+{
+    
+
+    if (pacman.direction==0){
+        pacman.x=pacman.x+1
+    }
+    else if (pacman.direction==1){
+        pacman.y=pacman.y-1
+    }
+    else if(pacman.direction==2){
+        pacman.x=pacman.x-1
+    }
+
+
+    else{
+        pacman.y=pacman.y+1
+    }
+}
+
+function changeDirection(event)
+{
+    // console.log('hola') pour tester la function
+    console.log(event.key)
+}
