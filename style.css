@@ -1,6 +1,5 @@
 #grille {
     display: grid; 
-    justify-content: center;
     padding-top: 30px;
     grid-template-columns: repeat(19,40px); 
     grid-template-rows: repeat(22,40px);
@@ -9,12 +8,14 @@
 
 body {
 background-color: black;
-background-image: url(./image/imagepacman.png);
+background-image: url("./image/backgroundpac.gif");
 background-repeat: no-repeat;
-background-size: 25%;
-background-position-x: 100%;
+background-size: 30%;
 background-position-y: 100%;
+background-position-x: 4%;
 display: flex;
+justify-content: space-between;
+
 }
 
 .flex{
@@ -24,23 +25,33 @@ display: flex;
     padding-top: 30px;
     padding-left: 30px;
     text-align: center;
+    margin: 100px;
     
 }
 
 .score{
-    border: 2px red dotted;
+    border: 4px red dotted;
     border-radius: 30px;
     color: white;
     width: 30%;
-    padding: 30px;
     text-align: center;
-    margin-left: 150px;
+    padding: 50px;
+    margin-left: 80px;
+    
 }
+
+
+.pacman_girl img{
+    padding: 0;
+    width: 100%;
+    margin-top: 550px;
+}
+
 
 .mur {
     
-    background-color: red;
-    border: 1px white dotted;
+    background: linear-gradient(0deg, rgba(195,34,34,1) 0%, rgb(253, 104, 45) 100%);
+    border: 2px red dotted;
     
 }
 
@@ -56,7 +67,21 @@ display: flex;
 background-image: url("./image/pacman4.gif");
 }
 
-.fantome {
-    background-image: url(./image/fantome0.gif);
+.fantome0 {
+    background-image: url("./image/fantome0.gif");
 }
 
+.fantome1{
+    background-image: url("./image/fantome1.gif");
+
+}
+
+.fantome2{
+    background-image: url("./image/fantome2.gif");
+
+}
+
+.fantome3{
+    background-image: url("./image/fantome3.gif");
+
+}
