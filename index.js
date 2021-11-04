@@ -27,16 +27,79 @@ let grille =[
     [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 ]
 
+let copygrille=JSON.parse(JSON.stringify(grille))
+
 document.body.addEventListener("keyup", changeDirection)
+document.getElementById("replay").addEventListener("click", rejouer)
 
 let interval = setInterval(tourdejeu,200)
  
 let pacman={
-    x:1,
-    y:2,662
-    direction:0
+    x:2,
+    y:2,
+    direction:1
 } 
 let tabFantome=[{
+    x:10,
+    y:11,
+    direction:3
+
+},{
+    x:10,
+    y:11,
+    direction:3
+
+},{
+    x:10,
+    y:11,
+    direction:3
+
+},{
+    x:10,
+    y:11,
+    direction:3
+
+},{
+    x:10,
+    y:11,
+    direction:3
+
+},{
+    x:10,
+    y:11,
+    direction:3
+
+},{
+    x:10,
+    y:11,
+    direction:3
+
+},{
+    x:10,
+    y:11,
+    direction:3
+
+},{
+    x:10,
+    y:11,
+    direction:3
+
+},{
+    x:10,
+    y:11,
+    direction:3
+
+},{
+    x:10,
+    y:11,
+    direction:3
+
+},{
+    x:10,
+    y:11,
+    direction:3
+
+},{
     x:10,
     y:11,
     direction:3
@@ -115,7 +178,7 @@ function affichePacman()
 function afficheFantome(num){
         let elem=document.createElement("div")
 
-        elem.className="fantome"+num
+        elem.className="fantome"+(num%5)
 
         document.getElementById("grille").appendChild(elem)
 
@@ -240,6 +303,18 @@ function sortiFantome(num){
     }
 }
 
+function attrapePacman(num){
+   
+    if(tabFantome[num].x==pacman.x){
+        if(tabFantome[num].y==pacman.y){
+         
+             alert("Vous avez perdu")
+             clearInterval(interval)
+         }
+    
+    } 
+}
+
 function gagne(){
     let gagne = true
         for (let i=0; i<22;i++) {
@@ -250,50 +325,27 @@ function gagne(){
             }
         }
     }
+    if (gagne==true) {
+        alert("Vous avez gagné!")
+        clearInterval(interval)
+       
+    }
 }
 
-if (gagne==true) {
-    alert("Vous avez gagné!")
-    clearInterval(interval)
 
-        
-}
 
 
 function tourdejeu () {
     affichegrille();
+    for(let i=0; i<tabFantome.length;i++){
+        attrapePacman(i); 
+        deplaceFantome(i);
+        attrapePacman(i);
+        sortiFantome(i);
+        collisionFantome(i);
+        afficheFantome(i)
+    }
 
-    deplaceFantome(0);
-
-    deplaceFantome(1);
-
-    deplaceFantome(2);
-
-    deplaceFantome(3);
-
-    sortiFantome(0);
-
-    sortiFantome(1);
-
-    sortiFantome(2);
-
-    sortiFantome(3);
-
-    collisionFantome(0);
-
-    collisionFantome(1);
-
-    collisionFantome(2);
-
-    collisionFantome(3);
-
-    afficheFantome(0);
-
-    afficheFantome(1);
-
-    afficheFantome(2);
-
-    afficheFantome(3);
 
     deplacePacman();
 
@@ -330,3 +382,18 @@ function changeDirection(event){
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
+
+function rejouer(){
+    grille=JSON.parse(JSON.stringify(copygrille))
+    pacman.x=2
+    pacman.direction=1
+    pacman.y=2
+    for(let i=0; i<tabFantome.length;i++){
+        tabFantome[i].x=10
+        tabFantome[i].y=11
+    }
+
+    interval = setInterval(tourdejeu,200);
+
+    Score=0
+}

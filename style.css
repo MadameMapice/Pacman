@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Pacman";
+    src: url(../Pacman/font/PAC-FONT.TTF);
+}
+
 #grille {
     display: grid; 
     padding-top: 30px;
@@ -37,14 +42,33 @@ justify-content: space-between;
     text-align: center;
     padding: 50px;
     margin-left: 80px;
+
+    ;
     
 }
 
+button {
+ 
+    margin-left:150px;
+    margin-top: 200px;
+    padding: 20px 50px;
+    background-color: orange;
+    border: 3px red solid;
+    font-family: "pacman";
+    font-size: 30px;
+    border-radius: 20px;
+   
+ 
+}
+
+button:hover{
+    cursor: pointer;
+}
 
 .pacman_girl img{
     padding: 0;
     width: 100%;
-    margin-top: 550px;
+    margin-top: 200px;
 }
 
 
@@ -84,4 +108,9 @@ background-image: url("./image/pacman4.gif");
 .fantome3{
     background-image: url("./image/fantome3.gif");
 
+}
+
+.fantome4{
+    background-image: url("./image/fantome4.gif");
+    background-size: contain;
 }
