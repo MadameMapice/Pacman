@@ -307,9 +307,9 @@ function attrapePacman(num){
    
     if(tabFantome[num].x==pacman.x){
         if(tabFantome[num].y==pacman.y){
-         
+         clearInterval(interval)
              alert("Vous avez perdu")
-             clearInterval(interval)
+             
          }
     
     } 
@@ -326,8 +326,9 @@ function gagne(){
         }
     }
     if (gagne==true) {
-        alert("Vous avez gagné!")
         clearInterval(interval)
+        alert("Vous avez gagné!")
+        
        
     }
 }
@@ -384,6 +385,7 @@ function getRandomInt(max) {
   }
 
 function rejouer(){
+    clearInterval(interval)
     grille=JSON.parse(JSON.stringify(copygrille))
     pacman.x=2
     pacman.direction=1
@@ -392,8 +394,8 @@ function rejouer(){
         tabFantome[i].x=10
         tabFantome[i].y=11
     }
-
+    Score=0
     interval = setInterval(tourdejeu,200);
 
-    Score=0
+    
 }
