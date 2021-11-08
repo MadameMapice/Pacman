@@ -51,8 +51,8 @@ attrapePacman(pacman){
 }
 
 
-collisionFantome(){
-    if(grille[this.y-1][this.x-1]==0){
+collisionFantome(carte){
+    if(carte.grille[this.y-1][this.x-1]==0){
 
         if (this.direction==0){
             this.x=this.x-1 

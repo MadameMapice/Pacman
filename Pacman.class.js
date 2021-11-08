@@ -53,8 +53,8 @@ class Pacman {
 }
 
 
-    collisionPacman(){
-    if(grille[this.y-1][this.x-1]==0){
+    collisionPacman(carte){
+    if(carte.grille[this.y-1][this.x-1]==0){
 
         if (this.direction==0){
             this.x=this.x-1 
@@ -73,9 +73,9 @@ class Pacman {
     }
 }
 
-    mangerPacman(){
-    if(grille[this.y-1][this.x-1]==2){
-        grille[this.y-1][this.x-1]=1
+    mangerPacman(carte){
+    if(carte.grille[this.y-1][this.x-1]==2){
+        carte.grille[this.y-1][this.x-1]=1
         Score=Score+10
         document.querySelector(".score").innerHTML="<h1> score : "+Score+"</h1>"
     }
@@ -99,11 +99,11 @@ class Pacman {
 
 
 
-    gagne(){
+    gagne(carte){
     let gagne = true
         for (let i=0; i<22;i++) {
             for (let j=0; j<19;j++) {
-                if(grille[i][j]==2){
+                if(carte.grille[i][j]==2){
                     gagne=false
 
             }

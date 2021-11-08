@@ -1,33 +1,8 @@
 
 // 0 es mur, 1 es sol, 2 bombom, 19 colonnes, 22 lignes
 
-let grille =[
+let carte =new Grille()
 
-    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-    [0,2,2,2,2,2,2,2,2,0,2,2,2,2,2,2,2,2,0],
-    [0,2,0,0,2,0,0,0,2,0,2,0,0,0,2,0,0,2,0],
-    [0,2,0,0,2,0,0,0,2,0,2,0,0,0,2,0,0,2,0],
-    [0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0],
-    [0,2,0,0,2,0,2,0,0,0,0,0,2,0,2,0,0,2,0],
-    [0,2,2,2,2,0,2,2,2,0,2,2,2,0,2,2,2,2,0],
-    [0,0,0,0,2,0,0,0,2,0,2,0,0,0,2,0,0,0,0],
-    [0,1,1,0,2,0,2,2,2,2,2,2,2,0,2,0,1,1,0],
-    [0,0,0,0,2,0,2,0,0,1,0,0,2,0,2,0,0,0,0],
-    [2,2,2,2,2,2,2,0,1,1,1,0,2,2,2,2,2,2,2],
-    [0,0,0,0,2,0,2,0,0,1,0,0,2,0,2,0,0,0,0],
-    [0,1,1,0,2,0,2,2,2,2,2,2,2,0,2,0,1,1,0],
-    [0,0,0,0,2,0,2,0,0,0,0,0,2,0,2,0,0,0,0],
-    [0,2,2,2,2,2,2,2,2,0,2,2,2,2,2,2,2,2,0],
-    [0,2,0,0,2,0,0,0,2,0,2,0,0,0,2,0,0,2,0],
-    [0,2,2,0,2,2,2,2,2,2,2,2,2,2,2,0,2,2,0],
-    [0,0,2,0,2,0,2,0,0,0,0,0,2,0,2,0,2,0,0],
-    [0,2,2,2,2,0,2,2,2,0,2,2,2,0,2,2,2,2,0],
-    [0,2,0,0,0,0,0,0,2,0,2,0,0,0,0,0,0,2,0],
-    [0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0],
-    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-]
-
-let copygrille=JSON.parse(JSON.stringify(grille))
 
 document.body.addEventListener("keyup", changeDirection)
 document.getElementById("replay").addEventListener("click", rejouer)
@@ -49,43 +24,16 @@ let tabFantome=[
 let Score=0
 
 
-function affichegrille(){ 
-    document.getElementById("grille").innerHTML=""
-        for (let i=0; i<22;i++) {
-            for (let j=0; j<19;j++) {
-                let elem=document.createElement("div")
-                elem.style.gridRowStart = i+1;
-                elem.style.gridColumnStart = j+1;
-
-                document.getElementById("grille").appendChild(elem)
-
-                if(grille[i][j]==0){
-                    elem.className="mur"
-                }
-
-                else if (grille[i][j]==1){
-                    elem.className="sol"
-                }
-            
-                else {
-                    elem.className="bonbon"
-                }
-
-            }
-        }
-
-}
-
 
 function tourdejeu () {
-    affichegrille();
+    carte.affichegrille();
     for(let i=0; i<tabFantome.length;i++){
     
         tabFantome[i].attrapePacman(pacman);
         tabFantome[i].deplaceFantome();
         tabFantome[i].attrapePacman(pacman);
         tabFantome[i].sortiFantome();
-        tabFantome[i].collisionFantome();
+        tabFantome[i].collisionFantome(carte);
         tabFantome[i].afficheFantome(i)
     }
 
@@ -94,13 +42,13 @@ function tourdejeu () {
 
     pacman.sortiPacman();
 
-    pacman.collisionPacman();
+    pacman.collisionPacman(carte);
 
-    pacman.mangerPacman();
+    pacman.mangerPacman(carte);
 
     pacman.affichePacman();
 
-    pacman.gagne();
+    pacman.gagne(carte);
     
 }
 
@@ -128,8 +76,8 @@ function getRandomInt(max) {
 
 function rejouer(){
     clearInterval(interval)
-    grille=JSON.parse(JSON.stringify(copygrille))
-    pacman.x=2
+    carte =new Grille()
+    pacman.x=1
     pacman.direction=0
     pacman.y=2
     for(let i=0; i<tabFantome.length;i++){
