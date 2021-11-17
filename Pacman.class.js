@@ -77,7 +77,7 @@ class Pacman {
     if(carte.grille[this.y-1][this.x-1]==2){
         carte.grille[this.y-1][this.x-1]=1
         Score=Score+10
-        document.querySelector(".score").innerHTML="<h1> score : "+Score+"</h1>"
+        document.querySelector(".score").innerHTML=  "<h1> Score : "+Score+"</h1>"
     }
 }
 
