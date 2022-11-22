@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Pacman";
-    src: url(../Pacman/font/PAC-FONT.TTF);
+    src: url("font/Crackman.otf");
 }
 
 #grille {
@@ -8,68 +8,43 @@
     padding-top: 30px;
     grid-template-columns: repeat(19,40px); 
     grid-template-rows: repeat(22,40px);
-
 }
 
 body {
-background-color: black;
-background-image: url("./image/backgroundpac.gif");
-background-repeat: no-repeat;
-background-size: 30%;
-background-position-y: 100%;
-background-position-x: 4%;
-display: flex;
-justify-content: space-between;
+    background-color: black !important;
 
-}
-
-.flex{
-    display: flex;
-    flex-direction: column;
-    width: 30%;
-    padding-top: 30px;
-    padding-left: 30px;
-    text-align: center;
-    margin: 100px;
-    
 }
 
 .score{
     border: 4px red dotted;
     border-radius: 30px;
     color: white;
-    width: 30%;
     text-align: center;
-    padding: 50px;
-    margin-left: 80px;
 
-    ;
-    
+}
+
+.score h1{
+    font-size: 50px;
+    font-family: "Pacman" !important;
+
 }
 
 button {
  
-    margin-left:150px;
-    margin-top: 200px;
-    padding: 20px 50px;
     background-color: orange;
-    border: 3px red solid;
-    font-family: "pacman";
-    font-size: 30px;
-    border-radius: 20px;
+    border: 6px red solid;
+    font-family: "Pacman" !important;
+    font-size: 50px !important;
+    border-radius: 20px !important;
+    color: black;
    
- 
 }
+
 
 button:hover{
     cursor: pointer;
 }
 
-.pacman_girl img{
-    padding: 0;
-    width: 100%;
-    margin-top: 200px;
-}
 
 
 .mur {

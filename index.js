@@ -55,16 +55,16 @@ function tourdejeu () {
 function changeDirection(event){
     console.log(event.key)
 
-    if (event.key=="8"){
+    if (event.key=="ArrowUp"){
         pacman.direction=1
     }
-    else if (event.key=="2"){
+    else if (event.key=="ArrowDown"){
         pacman.direction=3
     }
-    else if(event.key=="4"){
+    else if(event.key=="ArrowLeft"){
         pacman.direction=2
     }
-    else if(event.key=="6"){
+    else if(event.key=="ArrowRight"){
         pacman.direction=0
     }
 
